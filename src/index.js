@@ -20,8 +20,6 @@ const initialState = {
 
 const theStore= applyMiddleware(reduxThunk)(createStore)(root, initialState ,composeWithDevTools())
 
-// const theStore= createStore(root,composeWithDevTools())
-
 ReactDOM.render(
   <Provider store= {theStore} >
   <React.StrictMode>
