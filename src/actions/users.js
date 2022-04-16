@@ -24,7 +24,7 @@ import {
       };
   
       const { data } = await axios.post(
-        "http://localhost:4000/api/users/signin",
+        `${process.env.REACT_APP_API}/users/signin`,
         { email, password }, config
       );
   
@@ -58,7 +58,7 @@ import {
       };
   
       const { data } = await axios.post(
-        "http://localhost:4000/api/users/signup",
+        `${process.env.REACT_APP_API}/users/signup`,
         { name, pic, email, password },
         config
       );
@@ -94,7 +94,7 @@ import {
         },
       };
   
-      const { data } = await axios.post("http://localhost:4000/api/users/profile", user, config);
+      const { data } = await axios.post(`${process.env.REACT_APP_API}/users/profile`, user, config);
   
       dispatch({ type: USER_UPDATE_SUCCESS, payload: data });
   

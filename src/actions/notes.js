@@ -15,7 +15,7 @@ import {
 import axios from "axios";
 
 export const notebyId= async (token,id)=>{
-  const response= await axios.get(`http://localhost:4000/api/notes/${id}`, {
+  const response= await axios.get(`${process.env.REACT_APP_API}/notes/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     }    
@@ -49,7 +49,7 @@ export const listNotes = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`http://localhost:4000/api/notes/`, config);
+    const { data } = await axios.get(`${process.env.REACT_APP_API}/notes/`, config);
 
     dispatch({
       type: NOTES_LIST_SUCCESS,
@@ -88,7 +88,7 @@ export const createNoteAction = (title, content, category) => async (
     };
 
     const { data } = await axios.post(
-      `http://localhost:4000/api/notes/create`,
+      `${process.env.REACT_APP_API}/notes/create`,
       { title, content, category },
       config
     );
@@ -125,7 +125,7 @@ export const deleteNoteAction = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(`http://localhost:4000/api/notes/delete/${id}`, config);
+    const { data } = await axios.delete(`${process.env.REACT_APP_API}/notes/delete/${id}`, config);
 
     dispatch({
       type: NOTES_DELETE_SUCCESS,
@@ -164,7 +164,7 @@ export const updateNoteAction = (id, title, content, category) => async (
     };
 
     const { data } = await axios.patch(
-      `http://localhost:4000/api/notes/update/${id}`,
+      `${process.env.REACT_APP_API}/notes/update/${id}`,
       { title, content, category },
       config
     );

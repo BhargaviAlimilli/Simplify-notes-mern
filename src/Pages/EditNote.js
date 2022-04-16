@@ -38,7 +38,7 @@ function EditNote({ match }) {
 
   useEffect(() => {
     const fetching = async () => {
-      const { data } = await axios.get(`http://localhost:4000/api/notes/${id}`, {
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/notes/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         }    
